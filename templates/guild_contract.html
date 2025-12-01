@@ -1,0 +1,59 @@
+<!-- templates/guild_contract.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: 'Uncial Antiqua', serif;
+      background: #f4e4bc;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      color: #5d4037;
+      font-size: 28px;
+    }
+    .seal {
+      width: 100px;
+      height: 100px;
+      border: 5px solid #8B0000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      font-weight: bold;
+      color: #8B0000;
+    }
+    .footer {
+      margin-top: 30px;
+      text-align: right;
+      font-style: italic;
+    }
+    .qr {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .qr img {
+      max-width: 120px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Контракт Гильдии Приключенцев #{{ quest.id }}</h1>
+  <p><strong>Название:</strong> {{ quest.title }}</p>
+  <p><strong>Сложность:</strong> {{ quest.difficulty }}</p>
+  <p><strong>Вознаграждение:</strong> {{ quest.reward }} золотых</p>
+  <p><strong>Дедлайн:</strong> {{ quest.deadline }}</p>
+  <p><strong>Описание:</strong><br>{{ quest.description }}</p>
+  <div class="footer">Создано: {{ current_date }}</div>
+  {% if qr_code %}
+  <div class="qr">
+    <img src="data:{{ qr_code }}" alt="QR Code">
+  </div>
+  {% endif %}
+  <div class="seal">Печать</div>
+</body>
+</html>

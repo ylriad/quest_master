@@ -1,0 +1,50 @@
+<!-- templates/ancient_scroll.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: 'Uncial Antiqua', serif;
+      background: #1a120b;
+      color: #d7c9aa;
+      padding: 25px;
+      line-height: 1.7;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      text-shadow: 0 0 8px rgba(215, 201, 170, 0.6);
+      margin-bottom: 20px;
+    }
+    .rune {
+      text-align: center;
+      font-size: 20px;
+      margin: 15px 0;
+    }
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-style: italic;
+    }
+    .qr { text-align: center; margin-top: 15px; }
+    .qr img { max-width: 100px; filter: invert(1); }
+  </style>
+</head>
+<body>
+  <h1>ДРЕВНИЙ СВИТОК №{{ quest.id }}</h1>
+  <div class="rune">ᛉ ᛗ ᛉ</div>
+  <p><strong>Имя испытания:</strong> {{ quest.title }}</p>
+  <p><strong>Степень опасности:</strong> {{ quest.difficulty }}</p>
+  <p><strong>Дар древних:</strong> {{ quest.reward }} золотых</p>
+  <p><strong>Предел времени:</strong> {{ quest.deadline }}</p>
+  <p><strong>Слова предсказания:</strong><br>{{ quest.description }}</p>
+  <div class="footer">Начертано в день {{ current_date }}</div>
+  {% if qr_code %}
+  <div class="qr">
+    <img src="{{ qr_code }}" alt="QR Code">
+  </div>
+  {% endif %}
+  <div class="rune">ᛟ ᚱ ᚺ</div>
+</body>
+</html>

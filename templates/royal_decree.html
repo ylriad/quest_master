@@ -1,0 +1,64 @@
+<!-- templates/royal_decree.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: 'Uncial Antiqua', serif;
+      background: #f4e4bc;
+      padding: 30px;
+      color: #5d4037;
+    }
+    .header {
+      text-align: center;
+      border-bottom: 3px double #8B4513;
+      margin-bottom: 25px;
+    }
+    h1 {
+      font-size: 32px;
+      color: #8B0000;
+      letter-spacing: 2px;
+    }
+    .signature {
+      margin-top: 40px;
+      text-align: right;
+    }
+    .seal {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      border: 4px solid #8B0000;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 80px;
+      font-weight: bold;
+      color: #8B0000;
+    }
+    .qr { text-align: center; margin-top: 10px; }
+    .qr img { max-width: 100px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>УКАЗ ЕГО ВЕЛИЧЕСТВА</h1>
+    <p>От имени Королевской Канцелярии Государства Авалор</p>
+  </div>
+  <p>Приказываю выполнить следующее поручение:</p>
+  <p><strong>Квест:</strong> {{ quest.title }}</p>
+  <p><strong>Сложность:</strong> {{ quest.difficulty }}</p>
+  <p><strong>Награда:</strong> {{ quest.reward }} золотых монет</p>
+  <p><strong>Крайний срок:</strong> {{ quest.deadline }}</p>
+  <p><strong>Описание:</strong><br>{{ quest.description }}</p>
+  <div class="footer">Издано в столице {{ current_date }}</div>
+  {% if qr_code %}
+  <div class="qr">
+    <img src="{{ qr_code }}" alt="QR Code">
+  </div>
+  {% endif %}
+  <div class="signature">
+    <div class="seal">К</div>
+    <p>Королевская Печать</p>
+  </div>
+</body>
+</html>
