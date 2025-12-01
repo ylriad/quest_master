@@ -12,6 +12,6 @@
 
 1. **Клонируйте репозиторий** (или перейдите к шагу 2, если вы уже в папке проекта):
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/quest_master.git
+   git clone https://github.com/ylriad/quest_master.git
    cd quest_master
    ```
